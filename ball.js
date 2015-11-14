@@ -10,7 +10,7 @@ function Ball (radius, color) {
 	this.rotation = 0;
 	this.scaleX = 1;
 	this.scaleY = 1;
-	this.color = utils.parseColor(color);
+	// this.color = utils.parseColor(color);
 	this.lineWidth = 1;
 }
 
