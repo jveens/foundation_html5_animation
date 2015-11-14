@@ -22,6 +22,7 @@
 			(function drawFrame() {
 				window.requestAnimationFrame(drawFrame, canvas);
 				context.clearRect(0,0, canvas.width, canvas.height);
+				
 				var	dx = mouse.x - arrow.x,
 					dy = mouse.y - arrow.y;
 
