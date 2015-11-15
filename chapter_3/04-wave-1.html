@@ -28,7 +28,7 @@
 
 					ball.x += xspeed;
 					ball.y = centerY + Math.sin(angle) * range;
-					angle += yspeed;
+					angle += yspeed; // adjust the y value of the ball to make it move in a wave
 					ball.draw(context);
 				}());
 		};
