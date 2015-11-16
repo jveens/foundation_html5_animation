@@ -72,7 +72,7 @@ utils.colorToRGB = function (color, alpha) {
 
 	// extract the component values
 	var r = color >> 16 & 0xff,
-		g = color >> * & 0xff,
+		g = color >> 8 & 0xff,
 		b = color & 0xff,
 		a = (alpha < 0) ? 0 : ((alpha > 1) ? 1 : alpha); // check range
 
@@ -81,7 +81,7 @@ utils.colorToRGB = function (color, alpha) {
 		return 'rgb(' + r + ',' + g + ',' + b + ')';
 	}
 	else {
-		return 'rgba(' + r + ',' + g + ',' + b ',' a + ')' ;
+		return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')' ;
 	}
 }; // end utils.colorToRGB
 
