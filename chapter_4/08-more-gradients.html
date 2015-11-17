@@ -2,35 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Gradient Fills</title>
+	<title>More Gradients!</title>
 	<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 	<canvas id="canvas" height="400" width="400"></canvas>
 	<script>
 		window.onload = function() {
-
-			// set needed variables
-			var cavas = document.getElementById('canvas'),
+			// declare needed variables
+			var canvas = document.getElementById('canvas'),
 				context = canvas.getContext('2d'),
-				pt1 = {
-					x: 0,
-					y: 0
-				},
-				pt2 = {
-					x: 200,
-					y: 200
-				},
+				pt1 = {x: 0, y: 0 },
+				pt2 = {x: 200, y: 200 },
 				gradient = context.createLinearGradient(pt1.x, pt1.y, pt2.x, pt2.y);
 
-			// create the gradient colors (white to red)
+			// define gradient colorstops (white to blue to red)
 			gradient.addColorStop(0, '#ffffff');
+			gradient.addColorStop(0.5, '#0000ff');
 			gradient.addColorStop(1, '#ff0000');
 
-			// draw the gradient to the canvas
+			// draw to the canvas (via context)
 			context.fillStyle = gradient;
-			// context.fillRect(0,0,canvas.width,canvas.height);
-			context.fillRect(100, 100, 100, 100);
+			context.fillRect(0,0,canvas.width, canvas.width);
 		}
 	</script>
 </body>
