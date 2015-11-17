@@ -38,8 +38,10 @@
 			}
 
 			// curve through the last point, and back to the first
+			context.fillStyle= '#ff0000';
 			context.quadraticCurveTo(points[i].x, points[i].y, ctrlPoint1.x, ctrlPoint1.y);
 			context.stroke();
+			context.fill();
 		};
 	</script>
 </body>
