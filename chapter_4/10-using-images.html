@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Using Images</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="canvas" height="400" width="400"></canvas>
+	<script>
+	window.onload = function() {
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d'),
+			image = new Image();
+
+		image.src = "../bear.jpg";
+		image.onload = function() {
+			// execute as a callback, otherwise it will happen before the image is loaded (then it won't render)
+			
+			context.drawImage(image, 0,0); // this is just one way of invoking drawImage, there are also other formats
+		};
+	};
+	</script>
+</body>
+</html>
