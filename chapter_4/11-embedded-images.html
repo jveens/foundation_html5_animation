@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Embedded Images</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		/* Set picture to display none, other wise it will render 2x (once by canvas, other by html )*/
+		#picture {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+	<img id="picture" src="../bear.jpg" alt="It's a BEAR!">
+	<script>
+	window.onload = function() {
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d'),
+			image = document.getElementById('picture');
+
+		context.drawImage(image, 0, 0);
+	};
+	</script>
+</body>
+</html>
