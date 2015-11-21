@@ -51,8 +51,8 @@
 			context.clearRect(0,0,canvas.width,canvas.height);
 
 			vx += ax;
-			vy += ay + gravity;
-			// vy += gravity;
+			vy += ay;
+			vy += gravity;
 			ball.x += vx;
 			ball.y += vy;
 			ball.draw(context);
