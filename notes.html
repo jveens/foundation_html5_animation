@@ -876,4 +876,37 @@ body .markdown-body
 RADIANS TO DEGREES
     degrees = radians * 180 / Math.PI
 </code></pre>
+
+<h2>
+<a id="user-content-chapter-5" class="anchor" href="#chapter-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 5</h2>
+
+<p>Velocity: speed in a particular direction. <br>
+Vector: Something that has magnitude (speed) and direction.<br>
+<br>
+Although there is no such thing as negative magnitude, magnitude in the opposite direction can be described (in our case) as negative magnitude. <br>
+We can calculate an objects position by adding velocity to it's current position (object.x += vx).<br>
+The sum of 2 vectors can be thought of as angular velocity.Angular velocity combines the velocity of more than one axis (x and y, in our case). </p>
+
+<h2>
+<a id="user-content-chapter-6" class="anchor" href="#chapter-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 6</h2>
+
+<p>Inertia: the tendency of an opbect in motion to <em>stay</em> in motion.<br>
+Boundaries: an enclosed space for the 'action' to take place. When an object crosses the boundries, we can take the following actions:<br></p>
+
+<ol>
+<li>Remove it.<br>
+</li>
+<li>Regeneration.<br>
+</li>
+<li>Wrap it on the screen (if it leaves the left side bring it back on the right).<br>
+</li>
+<li>Bounce it against the boundry.<br>
+</li>
+</ol>
+
+<h4>
+<a id="user-content-removing-objects" class="anchor" href="#removing-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Objects</h4>
+
+<p>When working with multiple objects it can be helpful to store them in an array. Then, once they leave the screen, <em>array.splice</em> them out. <br>
+When deciding to remove an object, it is a good idea to take the width of the object into account. If the position of the object is measured by the center of the object, we want to add half the width in this calculation. This ensures we don't see the remaining half <em>disappear</em> off the screen.</p>
 </article></body></html>
