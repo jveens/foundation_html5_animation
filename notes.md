@@ -11,6 +11,25 @@
 		degrees = radians * 180 / Math.PI
 
 
+	-- Chapter.5 --
+
+	CONVERT ANGULAR VELOCITY TO X,Y VELOCITY
+		vx = speed * Math.cos(angle); // In Radians
+		vy = speed * Math.sin(angle); // In Radians
+
+	CONVERT ANGULAR ACCELERATION TO X,Y ACCELERATION
+		ax = force * Math.cos(angle);
+		ay = force * math.sin(angle);
+
+	ADD ACCELERATION TO VELOCITY
+		vx += ax;
+		vy += ay;
+
+	ADD VELOCITY TO POSITION
+		object.x += vx;
+		object.y += vy;
+
+
 ## Chapter 5
 Velocity: speed in a particular direction. <br>
 Vector: Something that has magnitude (speed) and direction.<br>
