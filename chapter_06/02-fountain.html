@@ -11,18 +11,24 @@
 	<script src="../ball.js"></script>
 	<script>
 	window.onload = function() {
+	// Initialize Variables
 		var canvas = document.getElementById('canvas'),
 			context = canvas.getContext('2d'),
 			balls = [],
 			numBalls = 200,
 			gravity = 0.5;
 
+	// Initialize balls into an array
 		for (var ball, i = 0; i < numBalls; i++) {
 			ball = new Ball(2, Math.random() * 0xffffff);
 			ball.x = canvas.width / 2;
-			ball.y = canvas.height * 0.8;
+			ball.y = canvas.height;
+
+			// Assigns a random upwards velocity
 			ball.vx = Math.random() * 2 - 1;
+			// Determines the span of the fountain
 			ball.vy = Math.random() * -10 -10;
+
 			balls.push(ball);
 		}
 
@@ -34,10 +40,10 @@
 				ball.x + ball.radius < 0 ||
 				ball.y - ball.radius > canvas.height ||
 				ball.y + ball.radius < 0) {
-				ball.x = canvas.width / 2;
-				ball.y = canvas.height * 0.8;
-				ball.vx = Math.random() * 2 - 1;
-				ball.vy = Math.random() * -10 -10;
+					ball.x = canvas.width / 2;
+					ball.y = canvas.height;
+					ball.vx = Math.random() * 2 - 1;
+					ball.vy = Math.random() * -10 -10;
 			}
 			ball.draw(context);
 		}
