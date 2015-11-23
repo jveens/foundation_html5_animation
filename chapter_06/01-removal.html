@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Removal</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+	<textarea name="" id="log" cols="30" rows="10"></textarea>
+	<script src="../utils.js"></script>
+	<script src="../ball.js"></script>
+	<script>
+	window.onload = function () {
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d'),
+			log = document.getElementById('log'),
+			balls = [],
+			numBalls = 10;
+
+	// Here we create 10 instances of Ball (determined by var numBalls)
+		for (var ball, i = 0; i < numBalls; i++) {
+			ball = new Ball(20);
+			ball.id = "ball" + i;
+			ball.x = Math.random() * canvas.width;
+			ball.y = Math.random() * canvas.height;
+			ball.vx = Math.random() * 2 - 1;
+			ball.vy = Math.random() * 2 - 1;
+			balls.push(ball);
+		}
+
+
+	// Here we  draw the balls and check if their location is within the boundry
+		function draw(ball, pos) {
+			ball.x += ball.vx;
+			ball.y += ball.vy;
+			if (ball.x - ball.radius > canvas.width ||
+				ball.x + ball.radius < 0 ||
+				ball.y - ball.radius > canvas.width ||
+				ball.y + ball.radius < 0) {
+				balls.splice(pos, 1);
+				if (balls.length > 0) {
+					log.value = "Removed " + ball.id;
+				}
+				else {
+					log.value = "All gone!";
+				}
+			}
+			ball.draw(context);
+		}
+
+		(function drawFrame() {
+			window.requestAnimationFrame(drawFrame, canvas);
+			context.clearRect(0,0,canvas.width, canvas.height);
+
+			var i = balls.length;
+		// Iterate backwards through the array, instead of forwards
+		// This is necessary because, when you splice the array, the indexing will change. 
+		// When you increment i, you will skip over one of the elements. 
+		// Going backward handles this, as long as nothing is added to the beginning of the array during iteration.
+			while (i--) {
+				draw(balls[i], i);
+			}
+		}());
+	};
+	</script>
+</body>
+</html>
