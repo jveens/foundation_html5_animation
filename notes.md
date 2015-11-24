@@ -49,3 +49,7 @@ Boundaries: an enclosed space for the 'action' to take place. When an object cro
 #### Removing Objects
 When working with multiple objects it can be helpful to store them in an array. Then, once they leave the screen, we can use *array.splice* to remove them. <br>
 When deciding to remove an object, it is a good idea to take the width of the object into account. If the position of the object is measured by the center of the object, we want to add half the width in this calculation. This ensures we don't see the remaining half *disappear* off the screen.
+#### Screen-Wrapping
+For screen-wrapping, we chage the position of the object once it goes off the screen. We let the object move *completely* off the canvas before we reposition. 
+#### Bouncing
+To bounce an object we want to reverse it's velocity: If it bounces on the top or bottom, reverse the Y velocity. If it bounces on the left or right, bounce the X velocity. To reverse the velocity, just multiply by -1.
