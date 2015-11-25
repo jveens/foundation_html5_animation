@@ -875,6 +875,25 @@ body .markdown-body
 
 RADIANS TO DEGREES
     degrees = radians * 180 / Math.PI
+
+
+-- Chapter.5 --
+
+CONVERT ANGULAR VELOCITY TO X,Y VELOCITY
+    vx = speed * Math.cos(angle); // In Radians
+    vy = speed * Math.sin(angle); // In Radians
+
+CONVERT ANGULAR ACCELERATION TO X,Y ACCELERATION
+    ax = force * Math.cos(angle);
+    ay = force * math.sin(angle);
+
+ADD ACCELERATION TO VELOCITY
+    vx += ax;
+    vy += ay;
+
+ADD VELOCITY TO POSITION
+    object.x += vx;
+    object.y += vy;
 </code></pre>
 
 <h2>
@@ -907,6 +926,18 @@ Boundaries: an enclosed space for the 'action' to take place. When an object cro
 <h4>
 <a id="user-content-removing-objects" class="anchor" href="#removing-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Objects</h4>
 
-<p>When working with multiple objects it can be helpful to store them in an array. Then, once they leave the screen, <em>array.splice</em> them out. <br>
+<p>When working with multiple objects it can be helpful to store them in an array. Then, once they leave the screen, we can use <em>array.splice</em> to remove them. <br>
 When deciding to remove an object, it is a good idea to take the width of the object into account. If the position of the object is measured by the center of the object, we want to add half the width in this calculation. This ensures we don't see the remaining half <em>disappear</em> off the screen.</p>
+
+<h4>
+<a id="user-content-screen-wrapping" class="anchor" href="#screen-wrapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screen-Wrapping</h4>
+
+<p>For screen-wrapping, we chage the position of the object once it goes off the screen. We let the object move <em>completely</em> off the canvas before we reposition. </p>
+
+<h4>
+<a id="user-content-bouncing" class="anchor" href="#bouncing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bouncing</h4>
+
+<p>To bounce an object we want to reverse it's velocity: If it bounces on the top or bottom, reverse the Y velocity. If it bounces on the left or right, bounce the X velocity. To reverse the velocity, just multiply by -1.
+We want to take care that the object we're bouncing does not leave the screen - not even a little bit. This will give an unrealistic effect, we want to avoid this!
+When we reverse the velocity, we want to ensure that the position of the ball is directly against the edge of the canvas. If we don't do this, the object can get stuck within the boundry of the canvas - stuck in an endless loop of velocity reversal. In our if statement we will position the object exactly to where our statement is checking for it. </p>
 </article></body></html>

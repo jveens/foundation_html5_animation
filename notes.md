@@ -53,3 +53,8 @@ When deciding to remove an object, it is a good idea to take the width of the ob
 For screen-wrapping, we chage the position of the object once it goes off the screen. We let the object move *completely* off the canvas before we reposition. 
 #### Bouncing
 To bounce an object we want to reverse it's velocity: If it bounces on the top or bottom, reverse the Y velocity. If it bounces on the left or right, bounce the X velocity. To reverse the velocity, just multiply by -1.
+We want to take care that the object we're bouncing does not leave the screen - not even a little bit. This will give an unrealistic effect, we want to avoid this!
+When we reverse the velocity, we want to ensure that the position of the ball is directly against the edge of the canvas. If we don't do this, the object can get stuck within the boundry of the canvas - stuck in an endless loop of velocity reversal. In our if statement we will position the object exactly to where our statement is checking for it. 
+Steps:	1. Check if it went past the boundry.
+		2. Reposition the object on the edge.
+		3. Reverse velocity.
