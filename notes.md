@@ -11,7 +11,7 @@
 		degrees = radians * 180 / Math.PI
 
 
-	-- Chapter.5 --
+### Acceleration and Velocity Manipulation
 
 	CONVERT ANGULAR VELOCITY TO X,Y VELOCITY
 		vx = speed * Math.cos(angle); // In Radians
@@ -28,6 +28,17 @@
 	ADD VELOCITY TO POSITION
 		object.x += vx;
 		object.y += vy;
+
+
+### Dealing with Objects Going Off Screen
+
+	REMOVE AN OUT-OF-BOUNDS OBJECT
+		if (object.x - object.width / 2 > right ||
+			object.x - object.width / 2 < left ||
+			object.y - object.height / 2 > bottom ||
+			object.y + object.height / 2 < top) {
+				// reset object position and velocity.
+			}
 
 
 ## Chapter 5

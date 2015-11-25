@@ -875,11 +875,12 @@ body .markdown-body
 
 RADIANS TO DEGREES
     degrees = radians * 180 / Math.PI
+</code></pre>
 
+<h3>
+<a id="user-content-acceleration-and-velocity-manipulation" class="anchor" href="#acceleration-and-velocity-manipulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acceleration and Velocity Manipulation</h3>
 
--- Chapter.5 --
-
-CONVERT ANGULAR VELOCITY TO X,Y VELOCITY
+<pre><code>CONVERT ANGULAR VELOCITY TO X,Y VELOCITY
     vx = speed * Math.cos(angle); // In Radians
     vy = speed * Math.sin(angle); // In Radians
 
@@ -894,6 +895,18 @@ ADD ACCELERATION TO VELOCITY
 ADD VELOCITY TO POSITION
     object.x += vx;
     object.y += vy;
+</code></pre>
+
+<h3>
+<a id="user-content-dealing-with-objects-going-off-screen" class="anchor" href="#dealing-with-objects-going-off-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with Objects Going Off Screen</h3>
+
+<pre><code>REMOVE AN OUT-OF-BOUNDS OBJECT
+    if (object.x - object.width / 2 &gt; right ||
+        object.x - object.width / 2 &lt; left ||
+        object.y - object.height / 2 &gt; bottom ||
+        object.y + object.height / 2 &lt; top) {
+            // reset object position and velocity.
+        }
 </code></pre>
 
 <h2>
@@ -939,5 +952,13 @@ When deciding to remove an object, it is a good idea to take the width of the ob
 
 <p>To bounce an object we want to reverse it's velocity: If it bounces on the top or bottom, reverse the Y velocity. If it bounces on the left or right, bounce the X velocity. To reverse the velocity, just multiply by -1.
 We want to take care that the object we're bouncing does not leave the screen - not even a little bit. This will give an unrealistic effect, we want to avoid this!
-When we reverse the velocity, we want to ensure that the position of the ball is directly against the edge of the canvas. If we don't do this, the object can get stuck within the boundry of the canvas - stuck in an endless loop of velocity reversal. In our if statement we will position the object exactly to where our statement is checking for it. </p>
+When we reverse the velocity, we want to ensure that the position of the ball is directly against the edge of the canvas. If we don't do this, the object can get stuck within the boundry of the canvas - stuck in an endless loop of velocity reversal. In our if statement we will position the object exactly to where our statement is checking for it. 
+Steps:  1. Check if it went past the boundry.
+        2. Reposition the object on the edge.
+        3. Reverse velocity.</p>
+
+<h4>
+<a id="user-content-friction" class="anchor" href="#friction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Friction</h4>
+
+<p>Also known as friction, drag, resistance, damping. Friction affects the magnitude of velocity, but not the force. </p>
 </article></body></html>
