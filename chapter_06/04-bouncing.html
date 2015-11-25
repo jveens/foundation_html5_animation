@@ -16,7 +16,8 @@
 			ball = new Ball(),
 			vx = Math.random() * 10 - 8,
 			vy = Math.random() * 10 - 8,
-			bounce = -0.9;
+			bounce = -0.9,
+			gravity = 0.1;
 
 		ball.x = canvas.width / 2;
 		ball.y = canvas.height / 2;
@@ -30,6 +31,7 @@
 				top = 0,
 				bottom = canvas.height;
 
+			vy += gravity;
 			ball.x += vx;
 			ball.y += vy;
 
