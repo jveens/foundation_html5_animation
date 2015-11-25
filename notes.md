@@ -58,3 +58,5 @@ When we reverse the velocity, we want to ensure that the position of the ball is
 Steps:	1. Check if it went past the boundry.
 		2. Reposition the object on the edge.
 		3. Reverse velocity.
+#### Friction
+Also known as friction, drag, resistance, damping. Friction affects the magnitude of velocity, but not the force. 
