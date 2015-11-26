@@ -20,6 +20,7 @@
 		ball.y = canvas.height / 2;
 
 		// add event listener that listens to see if you click on the ball and move it
+		// Note: ONLY listen when the mouse is over the ball
 		canvas.addEventListener('mousedown', function(){
 			if (utils.containsPoint(ball.getBounds(), mouse.x, mouse.y)) {
 				canvas.addEventListener('mouseup', onMouseUp, false);
@@ -27,13 +28,14 @@
 			}
 		}, false);
 
-		// remove listener on mouseup
+		// On Mouseup allows us to Remove the listener (so the ball doesn't continually get updated)
 		function onMouseUp() {
 			canvas.removeEventListener('mouseup', onMouseUp, false);
 			canvas.removeEventListener('mousemove', onMouseMove, false);
 		}
 
 		// add function to change ball position to mouse position
+		// This updates the ball's position from the center - it jumps if you click near the edge of the ball
 		function onMouseMove(event) {
 			ball.x = mouse.x;
 			ball.y = mouse.y;
