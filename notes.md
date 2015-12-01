@@ -71,12 +71,3 @@ Steps:	1. Check if it went past the boundry.
 		3. Reverse velocity.
 #### Friction
 Also known as friction, drag, resistance, damping. Friction affects the magnitude of velocity, but not the force. 
-
-## Chapter 8
-Easing - Proportational Motion.<br>
-Springing - Proportional Acceleration.<br>
-#### Proportional Motion
-  1. Set a target.
-  2. Determine the distance to target.
-  3. Make motion proportional to distance.
-
