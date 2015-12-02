@@ -21,10 +21,18 @@
 
 	// Draw Frame
 	(function drawFrame() {
-		window.requestAnimationFrame()
-	})
+		window.requestAnimationFrame(drawFrame, canvas);
+		context.clearRect(0, 0, canvas.width, canvas.height);
+
 	// Update velocity with distance needed to trave * easing
-	}
+		var vx = (targetX - ball.x) * easing,
+			vy = (targetY - ball.y) * easing;
+
+		ball.x += vx;
+		ball.y += vy;
+		ball.draw(context);
+	}());
+	};
 	</script>
 </body>
 </html>
