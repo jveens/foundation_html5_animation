@@ -80,3 +80,7 @@ Springing - Proportional Acceleration.<br>
   2. Determine the distance to target.
   3. Make motion proportional to distance.
 
+If we are always moving a proportional distance to our target, will we ever get there? If each time we move half the distance to the target, we could be doing this till infinity. **BUT** we will get to a point that is *close enough*. We need to figure out what this point is, so we can stop computations and 'arrive' at our target. 
+
+
+
