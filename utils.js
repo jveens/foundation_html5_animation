@@ -8,6 +8,15 @@ if (!window.requestAnimationFrame) {
 										});
 }
 
+if (!window.cancelRequestAnimationFrame) {   
+	window.cancelRequestAnimationFrame = (window.cancelAnimationFrame ||
+	                                       window.webkitCancelRequestAnimationFrame ||
+	                                       window.mozCancelRequestAnimationFrame ||
+	                                       window.oCancelRequestAnimationFrame ||
+	                                       window.msCancelRequestAnimationFrame || 
+	                                       window.clearTimeout); 
+}
+
 var utils = {};
 
 utils.captureMouse = function (element) {
