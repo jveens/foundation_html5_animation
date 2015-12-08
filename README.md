@@ -82,5 +82,39 @@ Springing - Proportional Acceleration.<br>
 
 If we are always moving a proportional distance to our target, will we ever get there? If each time we move half the distance to the target, we could be doing this till infinity. **BUT** we will get to a point that is *close enough*. We need to figure out what this point is, so we can stop computations and 'arrive' at our target. 
 
+Note: Easing can be used for properties other than position (color, rotation, transparency).
+
+	EASE ROTATION
+		var rotation = 90,
+			targetRotation = 270;
+		rotation += (targetRotation - rotation) * easing;
+		object.rotation = rotation * Math.Pi / 180; // convert degrees to radians
+
+
+
+	EASE COLORS 
+	// here we go from red to blue
+		var red = 255,
+			green = 0,
+			blue = 0,
+			redTarget = 0,
+			greenTarget = 0,
+			blueTarget = 255;
+
+	// in draw function
+		red += (redTarget - red) * easing;
+		green += (greenTarget - green) * easing;
+		blue += (blueTarget - blue) * easing;
+
+	// combine components
+		var color = red >> 16 | green << 8 | blue;
+
+
+
+
+
+
+
+
 
 
