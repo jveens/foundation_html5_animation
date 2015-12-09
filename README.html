@@ -969,11 +969,51 @@ Steps:  1. Check if it went past the boundry.
 Springing - Proportional Acceleration.<br></p>
 
 <h4>
-<a id="user-content-proportional-motion" class="anchor" href="#proportional-motion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proportional Motion</h4>
+<a id="user-content-proportional-motion---easing" class="anchor" href="#proportional-motion---easing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proportional Motion - Easing</h4>
 
 <ol>
 <li>Set a target.</li>
 <li>Determine the distance to target.</li>
 <li>Make motion proportional to distance.</li>
 </ol>
+
+<p>If we are always moving a proportional distance to our target, will we ever get there? If each time we move half the distance to the target, we could be doing this till infinity. <strong>BUT</strong> we will get to a point that is <em>close enough</em>. We need to figure out what this point is, so we can stop computations and 'arrive' at our target. </p>
+
+<p>Note: Easing can be used for properties other than position (color, rotation, transparency).</p>
+
+<pre><code>EASE ROTATION
+    var rotation = 90,
+        targetRotation = 270;
+    rotation += (targetRotation - rotation) * easing;
+    object.rotation = rotation * Math.Pi / 180; // convert degrees to radians
+
+EASE COLORS 
+// here we go from red to blue
+    var red = 255,
+        green = 0,
+        blue = 0,
+        redTarget = 0,
+        greenTarget = 0,
+        blueTarget = 255;
+
+// in draw function
+    red += (redTarget - red) * easing;
+    green += (greenTarget - green) * easing;
+    blue += (blueTarget - blue) * easing;
+
+// combine components
+    var color = red &gt;&gt; 16 | green &lt;&lt; 8 | blue;
+
+EASE TRANSPARENCY
+    var alpha = 0,
+        targetAlpha = 1;
+// in draw function
+    alpha += (targetAlpha - alpha) * easing;
+    ball.color = "rgba(255, 0, 0, " + alpha + ")";
+</code></pre>
+
+<h4>
+<a id="user-content-proportional-velocity---springing" class="anchor" href="#proportional-velocity---springing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proportional Velocity - Springing</h4>
+
+<p>Acceleration of a spring is proportional to it's target. </p>
 </article></body></html>

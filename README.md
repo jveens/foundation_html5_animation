@@ -75,7 +75,7 @@ Also known as friction, drag, resistance, damping. Friction affects the magnitud
 ## Chapter 8
 Easing - Proportational Motion.<br>
 Springing - Proportional Acceleration.<br>
-#### Proportional Motion
+#### Proportional Motion - Easing
   1. Set a target.
   2. Determine the distance to target.
   3. Make motion proportional to distance.
@@ -89,8 +89,6 @@ Note: Easing can be used for properties other than position (color, rotation, tr
 			targetRotation = 270;
 		rotation += (targetRotation - rotation) * easing;
 		object.rotation = rotation * Math.Pi / 180; // convert degrees to radians
-
-
 
 	EASE COLORS 
 	// here we go from red to blue
@@ -108,6 +106,16 @@ Note: Easing can be used for properties other than position (color, rotation, tr
 
 	// combine components
 		var color = red >> 16 | green << 8 | blue;
+
+	EASE TRANSPARENCY
+		var alpha = 0,
+			targetAlpha = 1;
+	// in draw function
+		alpha += (targetAlpha - alpha) * easing;
+		ball.color = "rgba(255, 0, 0, " + alpha + ")";
+
+#### Proportional Velocity - Springing
+Acceleration of a spring is proportional to it's target. 
 
 
 
