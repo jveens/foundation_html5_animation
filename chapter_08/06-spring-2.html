@@ -36,10 +36,11 @@
 				ball.x += vx;
 			}
 			else {
+				// for future calculation, let's move the ball to where it's supposed to be.
 				ball.x = targetX;
+				// as long as the requestAnimationFrame is running, it will be calculating - cancel it!
 				window.cancelAnimationFrame(animReq);
 				// console.log('animation done!');
-				// console.log(ball.x, ball.y);
 			}
 			ball.draw(context);
 		}());
