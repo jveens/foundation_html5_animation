@@ -8,15 +8,23 @@ if (!window.requestAnimationFrame) {
 										});
 }
 
-if (!window.cancelAnimationFrame) {
-+  window.cancelAnimationFrame = (window.cancelRequestAnimationFrame ||
-+                                 window.webkitCancelAnimationFrame || window.webkitCancelRequestAnimationFrame ||
-+                                 window.mozCancelAnimationFrame || window.mozCancelRequestAnimationFrame ||
-+                                 window.msCancelAnimationFrame || window.msCancelRequestAnimationFrame ||
-+                                 window.oCancelAnimationFrame || window.oCancelRequestAnimationFrame ||
-+                                 window.clearTimeout);
-+}
+// if (!window.cancelRequestAnimationFrame) {   
+// 	window.cancelRequestAnimationFrame = (window.cancelAnimationFrame ||
+// 	                                       window.webkitCancelRequestAnimationFrame ||
+// 	                                       window.mozCancelRequestAnimationFrame ||
+// 	                                       window.oCancelRequestAnimationFrame ||
+// 	                                       window.msCancelRequestAnimationFrame || 
+// 	                                       window.clearTimeout); 
+// }
 
+if (!window.cancelAnimationFrame) {
+  window.cancelAnimationFrame = (window.cancelRequestAnimationFrame ||
+                                 window.webkitCancelAnimationFrame || window.webkitCancelRequestAnimationFrame ||
+                                 window.mozCancelAnimationFrame || window.mozCancelRequestAnimationFrame ||
+                                 window.msCancelAnimationFrame || window.msCancelRequestAnimationFrame ||
+                                 window.oCancelAnimationFrame || window.oCancelRequestAnimationFrame ||
+                                 window.clearTimeout);
+}
 var utils = {};
 
 utils.captureMouse = function (element) {
