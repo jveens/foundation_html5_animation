@@ -22,15 +22,25 @@
 		ball.y = canvas.height / 2;
 
 		(function drawFrame () {
-			window.requestAnimationFrame(drawFrame, canvas);
+			var animReq = window.requestAnimationFrame(drawFrame, canvas);
 			context.clearRect(0,0,canvas.width,canvas.height);
 
 			var dx = targetX - ball.x,
 				ax = dx * spring;
+			// add acceleration to the velocity and check if we should animate
+				vx += ax;
 
-			vx += ax;
-			vx *= friction;
-			ball.x += vx;
+			// stop the animation if it is no longer having a visual effect
+			if (Math.abs(vx) > 0.0001 ) {
+				vx *= friction;
+				ball.x += vx;
+			}
+			else {
+				ball.x = targetX;
+				window.cancelAnimationFrame(animReq);
+				// console.log('animation done!');
+				// console.log(ball.x, ball.y);
+			}
 			ball.draw(context);
 		}());
 	};
