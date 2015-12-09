@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Moving Spring</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+	<script src="../utils.js"></script>
+	<script src="../ball.js"></script>
+	<script>
+	window.onload = function() {
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d'),
+			ball = new Ball(),
+			mouse = utils.captureMouse(canvas),
+			spring = 0.03, 
+			friction = 0.96,
+			vx = 0,
+			vy = 0;
+
+		(function drawFrame() {
+			window.requestAnimationFrame(drawFrame, canvas);
+			context.clearRect(0,0,canvas.width,canvas.height);
+
+			var dx = mouse.x - ball.x, 
+				dy = mouse.y - ball.y,
+				ax = dx * spring,
+				ay = dy * spring;
+
+			vx += ax;
+			vy += ay;
+			vx *= friction;
+			vy *= friction;
+			ball.x += vx;
+			ball.y += vy;
+
+			ball.draw(context);
+		}());
+	};
+	</script>
+</body>
+</html>
