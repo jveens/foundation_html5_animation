@@ -16,10 +16,13 @@
 			mouse = utils.captureMouse(canvas),
 			ball = new Ball(20),
 			handles = [],
-			numHandles = 3,
-			spring = 0.02, 
-			friction = 0.8,
+			numHandles = 7,
+			spring = 0.01, 
+			friction = 0.7,
 			movingHandle = null;
+
+		ball.x = canvas.width / 2,
+		ball.y = canvas.height / 2;
 
 		for (var handle, i = 0; i < numHandles; i++) {
 			handle = new Ball(10, '#00f');
