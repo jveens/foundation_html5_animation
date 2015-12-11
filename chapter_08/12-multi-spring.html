@@ -17,8 +17,8 @@
 			ball = new Ball(20),
 			handles = [],
 			numHandles = 3,
-			spring = 0.02, 
-			friction = 0.8,
+			spring = 0.01, 
+			friction = 0.5,
 			movingHandle = null;
 
 		for (var handle, i = 0; i < numHandles; i++) {
@@ -36,7 +36,7 @@
 			});
 		}, false);
 
-		canvas.addEventListener('mouseUp', function() {
+		canvas.addEventListener('mouseup', function() {
 			if (movingHandle) {
 				movingHandle = null;
 			}
