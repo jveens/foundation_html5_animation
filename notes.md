@@ -71,3 +71,10 @@ Steps:	1. Check if it went past the boundry.
 		3. Reverse velocity.
 #### Friction
 Also known as friction, drag, resistance, damping. Friction affects the magnitude of velocity, but not the force. 
+
+## Chapter 8
+### Easing and Springing
+
+##### Offsetting the target
+In real life, the object never really could reach the target (the place where the spring is anchored) because the spring gets in the way. Let's make our spring more realistic by offsetting the target to the place where the end of the spring is (opposite the anchor). Keep in mind that this point can move, as the spring is flexible. 
+
