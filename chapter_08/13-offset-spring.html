@@ -27,6 +27,7 @@
 
 				var dx = ball.x - mouse.x,
 					dy = ball.y - mouse.y,
+					// get the angle (direction) to travel
 					angle = Math.atan2(dy, dx),
 					targetX = mouse.x + Math.cos(angle) * springLength,
 					targetY = mouse.y + Math.sin(angle) * springLength;
